@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="6dp"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/darkWhite"
+            tools:context=".ui.alertActivity.AddAlarm">
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/pro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:paddingTop="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_height="60dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textAlignment="textStart"
+                    android:text="@string/addAlarm"
+                    android:gravity="start" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/alarmMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/pro"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/alarmSound"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <RadioButton
+                        android:id="@+id/notification"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#E9000000"
+                        android:checked="true"
+                        android:text="@string/notification" />
+
+                    <RadioButton
+                        android:id="@+id/dialog"
+                        android:layout_width="0dp"
+                        android:textColor="#E9000000"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="13dp"
+                        android:layout_marginEnd="13dp"
+                        android:layout_weight="1"
+                        android:text="@string/alarm" />
+                </LinearLayout>
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/TypeofAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:padding="5dp"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/pro"
+                app:layout_constraintTop_toBottomOf="@+id/alarmTimegroup">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/type"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/rain"
+                            android:textColor="#E9000000"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/rain" />
+
+                        <RadioButton
+                            android:id="@+id/temp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#E9000000"
+                            android:text="@string/cloud" />
+
+                        <RadioButton
+                            android:id="@+id/thunderStorm"
+                            android:layout_width="match_parent"
+                            android:textColor="#E9000000"
+                            android:layout_height="wrap_content"
+                            android:text="@string/thunderStorm" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/snow"
+                            android:layout_width="match_parent"
+                            android:textColor="#E9000000"
+                            android:layout_height="wrap_content"
+                            android:text="@string/snow" />
+
+
+                        <RadioButton
+                            android:id="@+id/wind"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#E9000000"
+                            android:text="@string/wind" />
+
+                        <RadioButton
+                            android:id="@+id/mist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#E9000000"
+                            android:text="@string/mistFog" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/timeInDay"
+                android:layout_marginTop="6dp"
+                android:padding="5dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/pro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TypeofAlarm">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/timeintheday"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/anytime"
+                            android:layout_width="0dp"
+                            android:checked="true"
+                            android:textColor="#E9000000"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/anyTime" />
+
+                        <RadioButton
+                            android:id="@+id/periodOfTime"
+                            android:layout_width="0dp"
+                            android:textColor="#E9000000"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/periodoftime" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/time"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                        <TextView
+                            android:id="@+id/fromTime"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:gravity="start|center"
+                            android:hint="@string/from"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="#B5B5B5"
+                            app:drawableStartCompat="@drawable/ic_alarm"
+                            tools:ignore="Autofill,LabelFor,RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/totime"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
+                            android:gravity="start|center"
+                            android:hint="@string/to"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="#B5B5B5"
+                            app:drawableStartCompat="@drawable/ic_alarm"
+                            tools:ignore="Autofill,LabelFor,RtlSymmetry" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/pro"
+                android:orientation="vertical"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timeInDay">
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/description"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/mytripday"
+                    android:textColor="#E9000000"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/alarmTimegroup"
+                android:orientation="vertical"
+                android:layout_marginTop="6dp"
+                android:padding="5dp"
+                android:background="@drawable/round_button"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@color/pro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.448"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/alarmMessage"
+                tools:layout_editor_absoluteY="497dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/alarmTime"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/alarmMessage" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                    <TextView
+                        android:id="@+id/alert_Date"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:gravity="start|center"
+                        android:hint="@string/enterDate"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#B5B5B5"
+                        app:drawableStartCompat="@drawable/ic_baseline_today_24"
+                        tools:ignore="Autofill,LabelFor,RtlSymmetry" />
+
+                    <TextView
+                        android:id="@+id/alert_Time"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+
+                        android:layout_weight="1"
+                        android:gravity="start|center"
+                        android:hint="@string/enterTime"
+
+                        android:textColor="@android:color/black"
+                        android:textColorHint="#B5B5B5"
+                        app:drawableStartCompat="@drawable/ic_alarm"
+                        tools:ignore="Autofill,LabelFor,RtlSymmetry" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:background="@drawable/round_button3"
+                android:text="@string/save"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

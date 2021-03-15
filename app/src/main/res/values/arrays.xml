@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="unitSystemValues">
+        <item>metric</item>
+        <item>imperial</item>
+        <item>standard</item>
+    </string-array>
+    <string-array name="unitSystemEntries">
+        <item>@string/cM</item>
+        <item>@string/fM</item>
+        <item>@string/kM</item>
+    </string-array>
+
+    <string-array name="languageSystemValues">
+        <item>ar</item>
+        <item>en</item>
+    </string-array>
+    <string-array name="languageSystemEntries">
+        <item>@string/arabic</item>
+        <item>@string/english</item>
+    </string-array>
+
+</resources>
