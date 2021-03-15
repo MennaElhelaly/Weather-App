@@ -20,6 +20,9 @@ class LocalAlarmDB(application: Application) {
     fun updateItem(id: Int, switch: Boolean){
         alarmDao.updateItem(id, switch)
     }
+    fun updateIdAlarm(id: Int, newId: Int){
+        alarmDao.updateIdAlarm(id, newId)
+    }
     fun deleteById(id:Int){
         alarmDao.deleteById(id)
     }

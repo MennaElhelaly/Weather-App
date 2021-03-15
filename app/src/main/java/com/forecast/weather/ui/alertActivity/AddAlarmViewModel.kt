@@ -16,6 +16,8 @@ class AddAlarmViewModel(app : Application) : AndroidViewModel(app) {
     fun returnId():LiveData<Int>{
         return weatherRepository.returnId()
     }
-
+    fun updateIdAlarm(id: Int, newId: Int){
+        weatherRepository.updateIdAlarm(id,newId)
+    }
 
 }

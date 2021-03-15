@@ -16,6 +16,7 @@ data class Alarm(
         val description: String,
         val alertTime:String,
         val alarmLong:Long,
+        val alarmNewID:Int,
         val alarmOn:Boolean
 )
 {

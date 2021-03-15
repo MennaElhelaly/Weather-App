@@ -112,16 +112,18 @@ class AddAlarm : AppCompatActivity() {
                 val alarm= Alarm(
                         alarmType, alarmDate, alarmTime,
                         alarmEvent, timeInDay, periodTimeStart, periodTimeEnd,
-                        alarmDescription, alertSetTime,calendarDay.timeInMillis,true
+                        alarmDescription, alertSetTime,calendarDay.timeInMillis,0,true
                 )
                 addAlarmViewModel.insertOneAlarm(alarm)
                 addAlarmViewModel.returnId().observe(this, {
                     setAlarm(this,
                             it, alarmEvent, alarmDescription, myHour, myMinute, myDay,
-                            myMonth, myYear, timeInDay, periodTimeStart, periodTimeEnd,alarmType,calendarDay.timeInMillis
+                            myMonth, myYear, timeInDay, periodTimeStart, periodTimeEnd,alarmType,it
                     )
+                    addAlarmViewModel.updateIdAlarm(it,it)
                     finish()
                 })
+
             }
         }
     }

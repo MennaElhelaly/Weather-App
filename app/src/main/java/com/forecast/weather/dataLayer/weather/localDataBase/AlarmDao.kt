@@ -17,8 +17,11 @@ interface AlarmDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAlarm(alarm: Alarm):Long
 
-    @Query("UPDATE Alarm SET alarmOn = :switch WHERE alarmId LIKE :id ")
+    @Query("UPDATE Alarm SET alarmOn = :switch  WHERE alarmId LIKE :id ")
     fun updateItem(id: Int, switch: Boolean)
+
+    @Query("UPDATE Alarm SET alarmNewID = :newId  WHERE alarmId LIKE :id ")
+    fun updateIdAlarm(id: Int, newId: Int)
 
     @Delete()
     fun delete(alarm: Alarm)

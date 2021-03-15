@@ -46,7 +46,7 @@ class WeatherReceiver : BroadcastReceiver() {
         val fromTime =intent.getLongExtra("fromTime",0)
         val toTime =intent.getLongExtra("toTime",0)
         val typeOfAlarm=intent.getStringExtra("type")
-        val alarm =intent.getLongExtra("alarm",0)
+        val roomId =intent.getIntExtra("roomId",0)
         val myDate =Calendar.getInstance()
         val weatherData = reposatory.getOneWeatherToAlert(myLat,myLong)
 
@@ -60,7 +60,7 @@ class WeatherReceiver : BroadcastReceiver() {
         if (toTime < myDate.timeInMillis){
             //cancel and delete
             CoroutineScope(Dispatchers.IO).launch {
-                reposatory.deleteAlertById(id)
+                reposatory.deleteAlertById(roomId)
             }
             alertViewModel.cancelAlertContext(context,id)
             Log.i("hh", "cancel")

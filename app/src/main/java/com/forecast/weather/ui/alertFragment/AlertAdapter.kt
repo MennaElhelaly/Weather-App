@@ -39,22 +39,22 @@ class AlertAdapter(var alerts: ArrayList<Alarm>, var alertViewModel: AlertViewMo
             val alertTime =alert.alertTime.split("/")
             if(alert.alarmOn){
                 alertViewModel.updateAlarm(alert.alarmId,false)
-                alertViewModel.cancelAlertContext(it.context,alert.alarmId)
+                alertViewModel.cancelAlertContext(it.context,alert.alarmNewID)
             }
             else
             {
                 alertViewModel.updateAlarm(alert.alarmId,true)
-                setAlarm(it.context,alert.alarmId,alert.event,alert.description,
+                setAlarm(it.context,alert.alarmNewID+1000,alert.event,alert.description,
                         alertTime[3].toInt(),alertTime[4].toInt(),alertTime[2].toInt(),alertTime[1].toInt(),
-                        alertTime[0].toInt(),alert.timeInDay,alert.periodTimeStart,alert.periodTimeEnd,alert.alarmType,alert.alarmLong)
-
+                        alertTime[0].toInt(),alert.timeInDay,alert.periodTimeStart,alert.periodTimeEnd,alert.alarmType,alert.alarmId)
+                alertViewModel.updateIdAlarm(alert.alarmId,alert.alarmNewID+1000)
             }
         }
 
     }
 
     fun deleteItem(pos: Int) {
-        alertViewModel.notificationID.value=alerts[pos].alarmId
+        alertViewModel.notificationID.value=alerts[pos].alarmNewID
         alertViewModel.deleteAlarm(alerts[pos])
         alerts.removeAt(pos)
         notifyItemRemoved(pos)

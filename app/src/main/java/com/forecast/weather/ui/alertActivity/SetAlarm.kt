@@ -28,12 +28,12 @@ fun setAlarm(context: Context,
              from: Long,
              to: Long,
              type:String,
-alarm:Long) {
+roomId:Int) {
     val alarmManager = context.getSystemService(AppCompatActivity.ALARM_SERVICE) as AlarmManager
-    Log.i("hh"," alarrrrm $id $event $hour $min $day $month $year $timeOfAlarm $from $to  $alarm  $type  ")
+    Log.i("hh"," alarrrrm $id $event $hour $min $day $month $year $timeOfAlarm $from $to $roomId $type  ")
     val intentA = Intent(context, WeatherReceiver::class.java)
     intentA.putExtra("event", event)
-    intentA.putExtra("alarm", alarm)
+    intentA.putExtra("roomId", roomId)
     intentA.putExtra("id", id)
     intentA.putExtra("desc", desc)
     intentA.putExtra("fromTime", from)

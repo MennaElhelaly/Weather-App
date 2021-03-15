@@ -90,5 +90,10 @@ class WeatherRepository(application: Application) {
             localDataSourceAlarm.updateItem(id,switch)
         }
     }
+    fun updateIdAlarm(id: Int, newId: Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            localDataSourceAlarm.updateIdAlarm(id,newId)
+        }
+    }
 
 }
