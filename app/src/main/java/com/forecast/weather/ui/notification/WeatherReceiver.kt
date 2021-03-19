@@ -58,6 +58,7 @@ class WeatherReceiver : BroadcastReceiver() {
         Log.i("hh", "$toTime  < ${myDate.timeInMillis}")
 
         if (toTime < myDate.timeInMillis){
+            Toast.makeText(context,context.getString(R.string.timeExp), Toast.LENGTH_SHORT).show()
             //cancel and delete
             CoroutineScope(Dispatchers.IO).launch {
                 reposatory.deleteAlertById(roomId)
@@ -71,13 +72,23 @@ class WeatherReceiver : BroadcastReceiver() {
                 val notificationHelper = NotificationWithSound(context,intent)
                 val notification: NotificationCompat.Builder = notificationHelper.channelNotification
                 notificationHelper.manager?.notify(1, notification.build())
+                reposatory.updateAlarm(roomId,false)
             }
 
         }else if(timePeriod=="period"&& toTime >= myDate.timeInMillis && typeOfAlarm =="alarm"){
-            if(weatherData.hourly.filter { it.dt in (from + 1) until to }.any{ it.weather[0].description.contains(event+"",ignoreCase = true)}){
+            if (weatherData.hourly.filter { it.dt in (from + 1) until to }.count() == 0){
+                Toast.makeText(context,context.getString(R.string.timeExp), Toast.LENGTH_SHORT).show()
+                CoroutineScope(Dispatchers.IO).launch {
+                    reposatory.deleteAlertById(roomId)
+                }
+                alertViewModel.cancelAlertContext(context,id)
+                Log.i("hh", "cancel")
+            }
+            else if (weatherData.hourly.filter { it.dt in (from + 1) until to }.any{ it.weather[0].description.contains(event+"",ignoreCase = true)}){
                 val notificationHelper = NotificationWithSound(context,intent)
                 val notification: NotificationCompat.Builder = notificationHelper.channelNotification
                 notificationHelper.manager?.notify(1, notification.build())
+                reposatory.updateAlarm(roomId,false)
             }
         }else{
              if(timePeriod =="anytime"){
@@ -85,13 +96,25 @@ class WeatherReceiver : BroadcastReceiver() {
                     val notificationHelper = MyNotification(context,intent)
                     val notification: NotificationCompat.Builder = notificationHelper.channelNotification
                     notificationHelper.manager?.notify(1, notification.build())
-                }
+                     reposatory.updateAlarm(roomId,false)
+
+                 }
             }else if(timePeriod== "period"&& toTime >= myDate.timeInMillis ){
-                 if(weatherData.hourly.filter { it.dt in (from + 1) until to }.any{ it.weather[0].description.contains(event+"",ignoreCase = true)}){
+                 if (weatherData.hourly.filter { it.dt in (from + 1) until to }.count() == 0){
+                     Toast.makeText(context,context.getString(R.string.timeExp), Toast.LENGTH_SHORT).show()
+                     CoroutineScope(Dispatchers.IO).launch {
+                         reposatory.deleteAlertById(roomId)
+                     }
+                     alertViewModel.cancelAlertContext(context,id)
+                     Log.i("hh", "cancel")
+                 }
+                 else if(weatherData.hourly.filter { it.dt in (from + 1) until to }.any{ it.weather[0].description.contains(event+"",ignoreCase = true)}){
                     val notificationHelper = MyNotification(context,intent)
                     val notification: NotificationCompat.Builder = notificationHelper.channelNotification
                     notificationHelper.manager?.notify(1, notification.build())
-                }
+                     reposatory.updateAlarm(roomId,false)
+
+                 }
             }
         }
 

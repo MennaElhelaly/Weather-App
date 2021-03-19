@@ -63,9 +63,20 @@
         android:id="@+id/descriptionOfAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:textColor="@color/black"
+        android:layout_marginTop="6dp"
         app:drawableStartCompat="@drawable/ic_comment"
+        app:layout_constraintStart_toStartOf="@+id/time_alarm"
+        app:layout_constraintTop_toBottomOf="@+id/typeDay"
+        tools:text=" my trip day" />
+
+    <TextView
+        android:id="@+id/typeDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/black"
+        app:drawableStartCompat="@drawable/ic_search"
         app:layout_constraintStart_toStartOf="@+id/time_alarm"
         app:layout_constraintTop_toBottomOf="@+id/time_alarm"
         tools:text=" my trip day" />

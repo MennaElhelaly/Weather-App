@@ -63,6 +63,7 @@ class AlertAdapter(var alerts: ArrayList<Alarm>, var alertViewModel: AlertViewMo
     class AlarmViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val type = view.typeofAlarm
         private val time = view.time_alarm
+        private val searchTime = view.typeDay
         private val description = view.descriptionOfAlarm
         private val btnOn = view.switchOn
         fun bind(alarm: Alarm) {
@@ -76,6 +77,11 @@ class AlertAdapter(var alerts: ArrayList<Alarm>, var alertViewModel: AlertViewMo
             time.text=" "+alarm.date+" "+ view.context.getString(R.string.at)+" "+alarm.time
             description.text =" "+ alarm.description
             this.btnOn.isChecked= alarm.alarmOn
+            if (alarm.timeInDay=="anytime") {
+                searchTime.text=" "+view.context.getString(R.string.anyTime)
+            }else {
+                searchTime.text=" "+view.context.getString(R.string.periodoftime)
+            }
         }
     }
 

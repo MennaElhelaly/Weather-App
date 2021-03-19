@@ -83,5 +83,6 @@
     <string name="reqDeni">تم رفض الإذن!!</string>
     <string name="accept">عليك قبول الإذن</string>
     <string name="turnOn">يجب عليك تشغيل الموقع</string>
+    <string name="timeExp">(انتهى الوقت) جارٍ الحذف …</string>
 
 </resources>

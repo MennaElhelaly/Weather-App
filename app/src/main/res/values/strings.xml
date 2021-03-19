@@ -84,4 +84,6 @@
     <string name="reqDeni">Permission Denied!!</string>
     <string name="accept">You have to accept it</string>
     <string name="turnOn">You have to turn on location</string>
+    <string name="timeExp">(Time expired) deleting…</string>
+
 </resources>
