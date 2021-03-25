@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import com.forecast.weather.R
 import com.forecast.weather.dataLayer.entityAlarm.Alarm
 import com.forecast.weather.databinding.ActivityAddAlarmBinding
@@ -115,14 +116,14 @@ class AddAlarm : AppCompatActivity() {
                         alarmDescription, alertSetTime,calendarDay.timeInMillis,0,true
                 )
                 addAlarmViewModel.insertOneAlarm(alarm)
-                addAlarmViewModel.returnId().observe(this, {
+                addAlarmViewModel.returnId().observe(this) {
                     setAlarm(this,
-                            it, alarmEvent, alarmDescription, myHour, myMinute, myDay,
-                            myMonth, myYear, timeInDay, periodTimeStart, periodTimeEnd,alarmType,it
+                        it, alarmEvent, alarmDescription, myHour, myMinute, myDay,
+                        myMonth, myYear, timeInDay, periodTimeStart, periodTimeEnd,alarmType,it
                     )
                     addAlarmViewModel.updateIdAlarm(it,it)
                     finish()
-                })
+                }
 
             }
         }
