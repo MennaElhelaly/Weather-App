@@ -179,8 +179,8 @@ class AddAlarm : AppCompatActivity() {
             binding.snow.isChecked = false
             binding.temp.isChecked = false
             binding.wind.isChecked = false
-            binding.thunderStorm.isChecked = true
-            binding.mist.isChecked = false
+            binding.thunderStorm.isChecked = false
+            binding.mist.isChecked = true
             alarmEvent = getString(R.string.mistFog)
         }
     }
