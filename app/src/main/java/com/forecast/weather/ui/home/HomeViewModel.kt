@@ -12,10 +12,6 @@ class HomeViewModel(app :Application) : AndroidViewModel(app) {
 
     val weatherRepository : WeatherRepository = WeatherRepository(app)
 
-
-    fun fetchWeather(lat: String, lng: String): LiveData<List<Weather>> {
-      return weatherRepository.getWeathers(lat, lng)
-    }
     fun fetchWeatherByID(lat: String, lng: String): LiveData<Weather> {
         return weatherRepository.getAndInsertWeather(lat, lng)
     }

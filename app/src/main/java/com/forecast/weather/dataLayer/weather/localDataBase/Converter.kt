@@ -9,6 +9,44 @@ import com.google.gson.reflect.TypeToken
 class Converter {
 
     @TypeConverter
+    fun fromCurrentToGeson(list : Current) : String{
+        return Gson().toJson(list)
+    }
+    @TypeConverter
+    fun fromJsonToCurrrent(gson: String):Current{
+        return Gson().fromJson(gson,Current::class.java)
+    }
+
+    @TypeConverter
+    fun fromAlertToGeson(list :List<Alert>?) : String{
+        return Gson().toJson(list)
+    }
+    @TypeConverter
+    fun fromJsonToAlert(gson: String):List<Alert>?{
+        val type = object : TypeToken<List<Alert>?>() {}.type
+        return Gson().fromJson(gson,type)
+    }
+    @TypeConverter
+    fun fromHourlyToGeson(list :List<Hourly>) : String{
+        return Gson().toJson(list)
+    }
+    @TypeConverter
+    fun fromJsonToHourly(gson: String):List<Hourly>{
+        val type = object : TypeToken<List<Hourly>>() {}.type
+        return Gson().fromJson(gson,type)
+    }
+    @TypeConverter
+    fun fromDailyToGeson(list :List<Daily>) : String{
+        return Gson().toJson(list)
+    }
+    @TypeConverter
+    fun fromJsonToDaily(gson: String):List<Daily>{
+        val type = object : TypeToken<List<Daily>>() {}.type
+        return Gson().fromJson(gson,type)
+    }
+
+
+    @TypeConverter
     fun fromWetherToGesonx(list :List<WeatherCurrent>) : String{
         return Gson().toJson(list)
     }
@@ -36,26 +74,6 @@ class Converter {
         val type = object : TypeToken<List<WeatherHourly>>() {}.type
         return Gson().fromJson(gson,type)
     }
-
-    @TypeConverter
-    fun fromCurrentToGeson(list : Current) : String{
-        return Gson().toJson(list)
-    }
-    @TypeConverter
-    fun fromJsonToCurrrent(gson: String):Current{
-        return Gson().fromJson(gson,Current::class.java)
-    }
-
-    @TypeConverter
-    fun fromAlertToGeson(list :List<Alert>?) : String{
-        return Gson().toJson(list)
-    }
-    @TypeConverter
-    fun fromJsonToAlert(gson: String):List<Alert>?{
-        val type = object : TypeToken<List<Alert>?>() {}.type
-        return Gson().fromJson(gson,type)
-    }
-
 
     @TypeConverter
     fun fromFeelsLikeToGeson(feelsLike: FeelsLike) : String{
@@ -90,24 +108,6 @@ class Converter {
     }
 
 
-    @TypeConverter
-    fun fromHourlyToGeson(list :List<Hourly>) : String{
-        return Gson().toJson(list)
-    }
-    @TypeConverter
-    fun fromJsonToHourly(gson: String):List<Hourly>{
-        val type = object : TypeToken<List<Hourly>>() {}.type
-        return Gson().fromJson(gson,type)
-    }
-    @TypeConverter
-    fun fromDailyToGeson(list :List<Daily>) : String{
-        return Gson().toJson(list)
-    }
-    @TypeConverter
-    fun fromJsonToDaily(gson: String):List<Daily>{
-        val type = object : TypeToken<List<Daily>>() {}.type
-        return Gson().fromJson(gson,type)
-    }
 
 
 

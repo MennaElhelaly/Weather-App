@@ -14,7 +14,6 @@ class FavoriteCitesViewModel(val app: Application) : AndroidViewModel(app) {
     private val navigate: MutableLiveData<Weather> = MutableLiveData<Weather>()
 
     fun allCountries() :LiveData<List<Weather>> {
-
         return weatherRepository.returnAll()
     }
     fun deleteCountry(weather: Weather){
